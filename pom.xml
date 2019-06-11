@@ -79,6 +79,11 @@
                         <plugin>jpa</plugin>
                         <plugin>spring</plugin>
                     </compilerPlugins>
+
+                    <pluginOptions>
+                        <option>all-open:annotation=com.my.Annotation</option>
+                        <option>all-open:annotation=com.their.AnotherAnnotation</option>
+                    </pluginOptions>
                     <args>
                         <arg>-Xjsr305=strict</arg>
                     </args>

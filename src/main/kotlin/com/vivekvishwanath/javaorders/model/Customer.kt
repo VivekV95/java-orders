@@ -31,6 +31,6 @@ data class Customer(
         @OneToMany(mappedBy = "customer",
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
-        @JsonIgnoreProperties("customers")
+        @JsonIgnoreProperties("customer")
         var orders: MutableList<Order>? = null
 )

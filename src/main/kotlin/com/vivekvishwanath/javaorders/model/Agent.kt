@@ -18,12 +18,12 @@ data class Agent(
         @OneToMany(mappedBy = "agent",
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
-        @JsonIgnoreProperties("agents")
+        @JsonIgnoreProperties("agent")
         var customers: MutableList<Customer>? = null,
 
         @OneToMany(mappedBy = "agent",
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
-        @JsonIgnoreProperties("agents")
+        @JsonIgnoreProperties("agent")
         var orders: MutableList<Order>? = null
 )
