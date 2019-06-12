@@ -33,4 +33,10 @@ class DataController {
         customerService.updateCustomer(updateCustomer, custCode)
         return ResponseEntity(HttpStatus.OK)
     }
+
+    @DeleteMapping(value = ["/customer/delete/{custCode}"])
+    fun deleteCustomerByCode(@PathVariable custCode: Long): ResponseEntity<Any> {
+        customerService.deleteCustomer(custCode)
+        return ResponseEntity(HttpStatus.OK)
+    }
 }

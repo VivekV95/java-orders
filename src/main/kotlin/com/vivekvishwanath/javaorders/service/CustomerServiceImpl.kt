@@ -46,4 +46,12 @@ class CustomerServiceImpl: CustomerService {
 
         return customerRepo.save(currentCustomer)
     }
+
+    override fun deleteCustomer(custCode: Long) {
+        if (customerRepo.findById(custCode).isPresent) {
+            customerRepo.deleteById(custCode)
+        } else {
+            throw EntityNotFoundException(custCode.toString())
+        }
+    }
 }
