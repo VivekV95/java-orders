@@ -8,7 +8,7 @@ interface CustomerService {
 
     fun addCustomer(customer: Customer): Customer
 
-    /* fun updateCustomer(id: Long): Customer
+    fun updateCustomer(customer: Customer, custCode: Long): Customer
 
-    fun deleteCustomer(id: Long)*/
+    /*fun deleteCustomer(id: Long)*/
 }
