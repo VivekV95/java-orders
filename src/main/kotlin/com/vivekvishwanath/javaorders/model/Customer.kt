@@ -8,7 +8,7 @@ import javax.persistence.*
 data class Customer(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        var custCode: Long? = null,
+        var custCode: Long,
 
         @Column(nullable = false)
         var custName: String? = null,
@@ -32,5 +32,26 @@ data class Customer(
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
         @JsonIgnoreProperties("customer")
-        var orders: MutableList<Order>? = null
-)
+        var orders: MutableList<Order>? = null) {
+
+    constructor(custName: String?,
+                custCity: String?,
+                workingArea: String?,
+                custCountry: String?,
+                grade: String?,
+                openingAmt: Double?,
+                receiveAmt: Double?,
+                paymentAmt: Double?,
+                outstandingAmt: Double?,
+                phone: String?,
+                agent: Agent?) :
+            this(0,
+                    custName,
+                    custCity,
+                    workingArea,
+                    custCountry,
+                    grade,
+                    openingAmt,
+                    receiveAmt, paymentAmt,
+                    outstandingAmt, phone, agent)
+}

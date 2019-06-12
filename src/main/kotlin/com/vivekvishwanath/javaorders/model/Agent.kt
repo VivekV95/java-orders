@@ -6,8 +6,9 @@ import javax.persistence.*
 @Entity
 @Table(name = "agents")
 data class Agent(
-        @Id @GeneratedValue(strategy = GenerationType.AUTO)
-        var agentCode: Long? = null,
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        var agentCode: Long,
 
         var agentName: String? = null,
         var workingArea: String? = null,
@@ -25,5 +26,16 @@ data class Agent(
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
         @JsonIgnoreProperties("agent")
-        var orders: MutableList<Order>? = null
-)
+        var orders: MutableList<Order>? = null) {
+        constructor(agentName: String?,
+                    workingArea: String?,
+                    commission: Double?,
+                    phone: String?,
+                    country: String?):
+                this(0,
+                        agentName,
+                        workingArea,
+                        commission,
+                        phone,
+                        country)
+}

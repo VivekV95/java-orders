@@ -6,7 +6,10 @@ import javax.persistence.*
 @Entity
 @Table(name = "orders")
 data class Order(
-        @Id @GeneratedValue(strategy = GenerationType.AUTO) var ordNum: Long,
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        var ordNum: Long,
+
         var ordAmount: Double,
         var advanceAmount: Double,
 
@@ -18,4 +21,14 @@ data class Order(
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "agentCode", nullable = false)
         @JsonIgnore
-        var agent: Agent? = null)
+        var agent: Agent? = null,
+
+        var ordDescription: String? = null) {
+
+    constructor(ordAmount: Double,
+                advanceAmount: Double,
+                customer: Customer?,
+                agent: Agent?,
+                ordDescription: String?) : this(0,
+            ordAmount, advanceAmount, customer, agent, ordDescription)
+}
