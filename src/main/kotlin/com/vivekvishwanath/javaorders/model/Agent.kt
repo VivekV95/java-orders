@@ -7,7 +7,7 @@ import javax.persistence.*
 @Table(name = "agents")
 data class Agent(
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         var agentCode: Long,
 
         var agentName: String? = null,

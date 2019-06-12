@@ -7,7 +7,7 @@ import javax.persistence.*
 @Table(name = "customers")
 data class Customer(
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         var custCode: Long,
 
         @Column(nullable = false)
@@ -25,7 +25,7 @@ data class Customer(
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "agentCode", nullable = false)
-        @JsonIgnoreProperties("customers", "hibernateLazyInitializer")
+        @JsonIgnoreProperties("customers", "hibernateLazyInitializer", "orders")
         var agent: Agent? = null,
 
         @OneToMany(mappedBy = "customer",

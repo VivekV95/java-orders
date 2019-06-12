@@ -7,7 +7,7 @@ import javax.persistence.*
 @Table(name = "orders")
 data class Order(
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         var ordNum: Long,
 
         var ordAmount: Double,

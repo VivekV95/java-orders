@@ -9,4 +9,6 @@ interface AgentRepo: CrudRepository<Agent, Long>
 
 interface CustomerRepo: CrudRepository<Customer, Long>
 
-interface OrderRepo: CrudRepository<Order, Long>
+interface OrderRepo: CrudRepository<Order, Long> {
+    fun findAllByCustomer_CustName(custName: String): MutableList<Order>
+}
