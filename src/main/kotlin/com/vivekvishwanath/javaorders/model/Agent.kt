@@ -20,13 +20,13 @@ data class Agent(
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
         @JsonIgnoreProperties("agent")
-        var customers: MutableList<Customer>? = null,
+        var customers: MutableList<Customer>? = mutableListOf(),
 
         @OneToMany(mappedBy = "agent",
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
         @JsonIgnoreProperties("agent")
-        var orders: MutableList<Order>? = null) {
+        var orders: MutableList<Order>? = mutableListOf()) {
         constructor(agentName: String?,
                     workingArea: String?,
                     commission: Double?,

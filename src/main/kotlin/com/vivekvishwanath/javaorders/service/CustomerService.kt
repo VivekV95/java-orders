@@ -6,9 +6,9 @@ interface CustomerService {
 
     fun findAll(): MutableList<Customer>
 
-    /* fun addCustomer(customer: Customer): Customer
+    fun addCustomer(customer: Customer): Customer
 
-    fun updateCustomer(id: Long): Customer
+    /* fun updateCustomer(id: Long): Customer
 
     fun deleteCustomer(id: Long)*/
 }

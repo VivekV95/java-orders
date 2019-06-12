@@ -32,7 +32,7 @@ data class Customer(
                 cascade = [CascadeType.ALL],
                 orphanRemoval = true)
         @JsonIgnoreProperties("customer")
-        var orders: MutableList<Order>? = null) {
+        var orders: MutableList<Order>? = mutableListOf()) {
 
     constructor(custName: String?,
                 custCity: String?,

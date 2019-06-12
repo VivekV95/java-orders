@@ -16,4 +16,9 @@ class CustomerServiceImpl: CustomerService {
         customerRepo.findAll().iterator().forEachRemaining{customerList.add(it)}
         return customerList
     }
+
+    override fun addCustomer(customer: Customer): Customer {
+        val newCustomer = customer.copy()
+        return customerRepo.save(newCustomer)
+    }
 }
